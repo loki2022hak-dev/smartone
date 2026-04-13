@@ -156,7 +156,7 @@ export function ProductReviews({
                       <AvatarFallback>
                         {review.author
                           .split(" ")
-                          ?.map((n) => n?.?.[0])
+                          ?.map((n) => n?.[0])
                           .join("")}
                       </AvatarFallback>
                     </Avatar>

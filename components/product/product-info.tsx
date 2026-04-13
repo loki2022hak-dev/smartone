@@ -24,10 +24,10 @@ interface ProductInfoProps {
 
 export function ProductInfo({ product }: ProductInfoProps) {
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant>(
-    product.variants?.?.[0]
+    product.variants?.[0]
   );
   const [selectedColor, setSelectedColor] = useState<ProductColor>(
-    product.colors?.?.[0]
+    product.colors?.[0]
   );
   const [quantity, setQuantity] = useState(1);
   const [isAddedToCart, setIsAddedToCart] = useState(false);

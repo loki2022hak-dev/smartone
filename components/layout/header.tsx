@@ -76,7 +76,7 @@ export function Header() {
               {navigation?.map((item) => {
                 const isActive =
                   pathname === item.href ||
-                  (item.href !== '/' && pathname.startsWith(item.href.split('?')?.?.[0]));
+                  (item.href !== '/' && pathname.startsWith(item.href.split('?')?.[0]));
                 return (
                   <Link
                     key={item.name}
@@ -175,7 +175,7 @@ export function Header() {
                 {navigation?.map((item) => {
                   const isActive =
                     pathname === item.href ||
-                    (item.href !== '/' && pathname.startsWith(item.href.split('?')?.?.[0]));
+                    (item.href !== '/' && pathname.startsWith(item.href.split('?')?.[0]));
                   return (
                     <Link
                       key={item.name}

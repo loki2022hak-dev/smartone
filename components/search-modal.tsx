@@ -117,7 +117,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       >
                         <div className="h-16 w-16 rounded-lg bg-secondary overflow-hidden flex-shrink-0">
                           <Image
-                            src={product.images?.?.[0]}
+                            src={product.images?.[0]}
                             alt={product.title}
                             width={64}
                             height={64}
@@ -130,7 +130,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           </p>
                           <p className="text-sm text-muted-foreground">
                             {product.specifications.ram} /{' '}
-                            {product.storageVariants?.?.[0]}
+                            {product.storageVariants?.[0]}
                           </p>
                         </div>
                         <div className="text-right flex-shrink-0">

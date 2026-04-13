@@ -100,7 +100,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                       >
                         <div className="h-20 w-20 rounded-lg bg-secondary overflow-hidden flex-shrink-0">
                           <Image
-                            src={product.images?.?.[0]}
+                            src={product.images?.[0]}
                             alt={product.title}
                             width={80}
                             height={80}

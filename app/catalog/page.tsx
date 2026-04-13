@@ -76,7 +76,9 @@ export default function CatalogPage() {
 
     // Filter by price
     result = result?.filter((p) => {
-      const minPrice = Math?.min(?.p?.variants?.map((v) => v?.salePrice || v?.price));
+      const minPrice = (p?.variants && p.variants.length > 0) 
+        ? Math.min(...p.variants.map((v) => v.salePrice ?? v.price)) 
+        : Infinity;
       return minPrice >= priceMin && minPrice <= priceMax;
     });
 

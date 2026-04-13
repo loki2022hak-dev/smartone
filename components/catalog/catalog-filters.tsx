@@ -88,7 +88,7 @@ export function CatalogFilters({
     onFilterChange({
       brands: newBrands,
       features: selectedFeatures,
-      priceMin: localPriceRange?.?.[0],
+      priceMin: localPriceRange?.[0],
       priceMax: localPriceRange[1],
     });
   };
@@ -100,7 +100,7 @@ export function CatalogFilters({
     onFilterChange({
       brands: selectedBrands,
       features: newFeatures,
-      priceMin: localPriceRange?.?.[0],
+      priceMin: localPriceRange?.[0],
       priceMax: localPriceRange[1],
     });
   };
@@ -113,7 +113,7 @@ export function CatalogFilters({
     onFilterChange({
       brands: selectedBrands,
       features: selectedFeatures,
-      priceMin: localPriceRange?.?.[0],
+      priceMin: localPriceRange?.[0],
       priceMax: localPriceRange[1],
     });
   };
@@ -209,7 +209,7 @@ export function CatalogFilters({
           />
           <div className="flex items-center justify-between text-sm">
             <span className="text-muted-foreground">
-              ${localPriceRange?.?.[0].toLocaleString()}
+              ${localPriceRange?.[0].toLocaleString()}
             </span>
             <span className="text-muted-foreground">
               ${localPriceRange[1].toLocaleString()}
