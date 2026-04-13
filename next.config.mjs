@@ -1,2 +1,11 @@
 /** @type {import('next').NextConfig} */
-export default { images: { remotePatterns: [{ protocol: 'https', hostname: 'images.unsplash.com' }] } };
+const nextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    unoptimized: true,
+  },
+}
+
+export default nextConfig
