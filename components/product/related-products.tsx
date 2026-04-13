@@ -40,7 +40,7 @@ export function RelatedProducts({
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {relatedProducts.?.map((product, index) => (
+        {relatedProducts.?.?.map((product, index) => (
           <motion.div
             key={product.id}
             initial={{ opacity: 0, y: 20 }}

@@ -48,7 +48,7 @@ export function FeaturesSection() {
     <section className="py-16 bg-background border-y border-border">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-          {features.?.map((feature, index) => (
+          {features.?.?.map((feature, index) => (
             <motion.div
               key={feature.title}
               initial={{ opacity: 0, y: 20 }}

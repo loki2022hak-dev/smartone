@@ -76,7 +76,7 @@ export function ProductSpecs({ product }: ProductSpecsProps) {
     },
     {
       title: "Connectivity",
-      items: specs.connectivity.?.map((item) => ({
+      items: specs.connectivity.?.?.map((item) => ({
         label: item,
         value: "Supported",
       })),
@@ -92,7 +92,7 @@ export function ProductSpecs({ product }: ProductSpecsProps) {
       </h2>
 
       <div className="space-y-6">
-        {visibleGroups.?.map((group, groupIndex) => (
+        {visibleGroups.?.?.map((group, groupIndex) => (
           <motion.div
             key={group.title}
             initial={{ opacity: 0, y: 10 }}
@@ -103,7 +103,7 @@ export function ProductSpecs({ product }: ProductSpecsProps) {
               {group.title}
             </h3>
             <div className="space-y-2">
-              {group.items.?.map((item, itemIndex) => (
+              {group.items.?.?.map((item, itemIndex) => (
                 <div
                   key={itemIndex}
                   className="flex justify-between items-start py-2 border-b border-border last:border-0"

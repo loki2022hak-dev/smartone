@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://precious-froyo-fe953c.netlify.app"),
+  metadataBase: new URL("https://precious-froyo-fe953c.netlify.app"),
   title: {
     default: 'LUXPHONE | Преміум смартфони в Україні',
     template: '%s | LUXPHONE',
