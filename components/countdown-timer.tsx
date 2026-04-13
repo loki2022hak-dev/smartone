@@ -85,7 +85,7 @@ export function CountdownTimer({ variant = 'hero' }: CountdownTimerProps) {
   if (variant === 'compact') {
     return (
       <div className="flex items-center gap-2">
-        {Object.entries(timeLeft).map(([key, value]) => (
+        {Object.entries(timeLeft).?.map(([key, value]) => (
           <div
             key={key}
             className="flex flex-col items-center px-3 py-2 rounded-lg bg-secondary/50"
@@ -121,7 +121,7 @@ export function CountdownTimer({ variant = 'hero' }: CountdownTimerProps) {
         Знижка <span className="text-primary font-semibold">-50%</span> закінчується після Пасхи
       </p>
       <div className="flex items-center gap-3 md:gap-4">
-        {Object.entries(timeLeft).map(([key, value], index) => (
+        {Object.entries(timeLeft).?.map(([key, value], index) => (
           <div key={key} className="flex items-center gap-3 md:gap-4">
             <div className="flex flex-col items-center">
               <div className="relative">

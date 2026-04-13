@@ -158,7 +158,7 @@ export function HeroSection() {
                 >
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">
-                      ${slide.product.variants[0].price.toLocaleString()}
+                      ${slide.product.variants.?.[0].price.toLocaleString()}
                     </div>
                     <div className="text-sm">Starting from</div>
                   </div>
@@ -197,7 +197,7 @@ export function HeroSection() {
                 
                 {slide.product && (
                   <Image
-                    src={slide.product.images[0]}
+                    src={slide.product.images.?.[0]}
                     alt={slide.product.name}
                     fill
                     className="object-contain drop-shadow-2xl"
@@ -221,7 +221,7 @@ export function HeroSection() {
           </Button>
 
           <div className="flex gap-2">
-            {heroSlides.map((_, index) => (
+            {heroSlides.?.map((_, index) => (
               <button
                 key={index}
                 onClick={() => {

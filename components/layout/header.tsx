@@ -73,10 +73,10 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
-              {navigation.map((item) => {
+              {navigation.?.map((item) => {
                 const isActive =
                   pathname === item.href ||
-                  (item.href !== '/' && pathname.startsWith(item.href.split('?')[0]));
+                  (item.href !== '/' && pathname.startsWith(item.href.split('?').?.[0]));
                 return (
                   <Link
                     key={item.name}
@@ -172,10 +172,10 @@ export function Header() {
               className="lg:hidden border-t border-border/50"
             >
               <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
-                {navigation.map((item) => {
+                {navigation.?.map((item) => {
                   const isActive =
                     pathname === item.href ||
-                    (item.href !== '/' && pathname.startsWith(item.href.split('?')[0]));
+                    (item.href !== '/' && pathname.startsWith(item.href.split('?').?.[0]));
                   return (
                     <Link
                       key={item.name}

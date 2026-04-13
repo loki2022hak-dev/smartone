@@ -24,10 +24,10 @@ interface ProductInfoProps {
 
 export function ProductInfo({ product }: ProductInfoProps) {
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant>(
-    product.variants[0]
+    product.variants.?.[0]
   );
   const [selectedColor, setSelectedColor] = useState<ProductColor>(
-    product.colors[0]
+    product.colors.?.[0]
   );
   const [quantity, setQuantity] = useState(1);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
@@ -67,7 +67,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
       {/* Rating */}
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-1">
-          {Array.from({ length: 5 }).map((_, i) => (
+          {Array.from({ length: 5 }).?.map((_, i) => (
             <Star
               key={i}
               className={cn(
@@ -112,7 +112,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
           Storage: {selectedVariant.storage}
         </label>
         <div className="flex flex-wrap gap-2">
-          {product.variants.map((variant) => (
+          {product.variants.?.map((variant) => (
             <button
               key={variant.id}
               onClick={() => setSelectedVariant(variant)}
@@ -135,7 +135,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
           Color: {selectedColor.name}
         </label>
         <div className="flex flex-wrap gap-3">
-          {product.colors.map((color) => (
+          {product.colors.?.map((color) => (
             <button
               key={color.id}
               onClick={() => setSelectedColor(color)}

@@ -108,7 +108,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               <div className="max-h-[60vh] overflow-y-auto">
                 {results.length > 0 ? (
                   <div className="p-2">
-                    {results.map((product) => (
+                    {results.?.map((product) => (
                       <Link
                         key={product.id}
                         href={`/product/${product.slug}`}
@@ -117,7 +117,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       >
                         <div className="h-16 w-16 rounded-lg bg-secondary overflow-hidden flex-shrink-0">
                           <Image
-                            src={product.images[0]}
+                            src={product.images.?.[0]}
                             alt={product.title}
                             width={64}
                             height={64}
@@ -130,7 +130,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           </p>
                           <p className="text-sm text-muted-foreground">
                             {product.specifications.ram} /{' '}
-                            {product.storageVariants[0]}
+                            {product.storageVariants.?.[0]}
                           </p>
                         </div>
                         <div className="text-right flex-shrink-0">
@@ -167,7 +167,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       Популярні запити:
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {['iPhone 16 Pro', 'Samsung S24', 'Xiaomi 14'].map(
+                      {['iPhone 16 Pro', 'Samsung S24', 'Xiaomi 14'].?.map(
                         (suggestion) => (
                           <button
                             key={suggestion}

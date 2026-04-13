@@ -76,7 +76,7 @@ export default function CatalogPage() {
 
     // Filter by price
     result = result.filter((p) => {
-      const minPrice = Math.min(...p.variants.map((v) => v.salePrice || v.price));
+      const minPrice = Math.min(...p.variants.?.map((v) => v.salePrice || v.price));
       return minPrice >= priceMin && minPrice <= priceMax;
     });
 
@@ -85,15 +85,15 @@ export default function CatalogPage() {
       case "price-asc":
         result.sort(
           (a, b) =>
-            Math.min(...a.variants.map((v) => v.salePrice || v.price)) -
-            Math.min(...b.variants.map((v) => v.salePrice || v.price))
+            Math.min(...a.variants.?.map((v) => v.salePrice || v.price)) -
+            Math.min(...b.variants.?.map((v) => v.salePrice || v.price))
         );
         break;
       case "price-desc":
         result.sort(
           (a, b) =>
-            Math.min(...b.variants.map((v) => v.salePrice || v.price)) -
-            Math.min(...a.variants.map((v) => v.salePrice || v.price))
+            Math.min(...b.variants.?.map((v) => v.salePrice || v.price)) -
+            Math.min(...a.variants.?.map((v) => v.salePrice || v.price))
         );
         break;
       case "name-asc":
