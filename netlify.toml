@@ -2,8 +2,9 @@
 package = "@netlify/plugin-nextjs"
 
 [build]
-  command = "npm install && npm run build"
+  command = "pnpm install --no-frozen-lockfile && pnpm run build"
   publish = ".next"
 
 [build.environment]
   NODE_VERSION = "20"
+  PNPM_FLAGS = "--shamefully-hoist"
