@@ -18,3 +18,8 @@ export const isPaymentConfigured = (): boolean => {
   const config = getPaymentConfig();
   return Boolean(config.secretKey && config.publicKey);
 };
+
+export const paymentConfig = {
+  merchantId: process.env.MERCHANT_ID,
+  secret: process.env.SECRET_KEY
+};

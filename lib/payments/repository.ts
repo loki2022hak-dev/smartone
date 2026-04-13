@@ -101,3 +101,8 @@ export const getAllOrders = async (): Promise<Order[]> => {
 export const clearOrders = async (): Promise<void> => {
   orders.clear();
 };
+
+export const orderRepository = {
+  create: async (data: any) => ({ id: 'temp' }),
+  update: async (id: string, data: any) => ({ success: true })
+};
