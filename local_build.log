@@ -1,0 +1,47 @@
+
+> my-project@0.1.0 build
+> next build
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /home/grim5225/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /home/grim5225/Стільниця/Проект/pnpm-lock.yaml
+
+▲ Next.js 16.2.0 (Turbopack)
+
+  Creating an optimized production build ...
+
+thread 'tokio-runtime-worker' (41872) panicked at turbopack/crates/turbopack-core/src/ident.rs:354:34:
+start byte index 9 is not a char boundary; it is inside 'ь' (bytes 8..10) of `Стільниця_Проект__next-internal_server_app__not-found_page_actions_0yvffo3`
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'tokio-runtime-worker' (41872) panicked at turbopack/crates/turbopack-core/src/ident.rs:354:34:
+start byte index 17 is not a char boundary; it is inside 'я' (bytes 16..18) of `Стільниця_Проект__next-internal_server_app_order-confirmation_page_actions_0lghkh.`
+
+thread 'tokio-runtime-worker' (41872) panicked at turbopack/crates/turbopack-core/src/ident.rs:354:34:
+start byte index 7 is not a char boundary; it is inside 'л' (bytes 6..8) of `Стільниця_Проект__next-internal_server_app_checkout_page_actions_051pzpz`
+
+thread 'tokio-runtime-worker' (41871) panicked at turbopack/crates/turbopack-core/src/ident.rs:354:34:
+start byte index 3 is not a char boundary; it is inside 'т' (bytes 2..4) of `Стільниця_Проект__next-internal_server_app_cart_page_actions_0obwrhm`
+
+thread 'tokio-runtime-worker' (41871) panicked at turbopack/crates/turbopack-core/src/ident.rs:354:34:
+start byte index 20 is not a char boundary; it is inside 'П' (bytes 19..21) of `Стільниця_Проект__next-internal_server_app_api_webhooks_payment_route_actions_00kky7x`
+
+> Build error occurred
+Error: Turbopack build failed with 1 errors:
+./Стільниця/Проект/app/catalog/page.tsx:90:23
+Expression expected
+  [90m88 |[0m         result?.sort(
+  [90m89 |[0m           (a, b) =>
+[31m[1m>[0m [90m90 |[0m             [33mMath[0m?.min(?.a?.variants?.map((v) => v.salePrice || v.price...
+  [90m   |[0m                       [31m[1m^[0m
+  [90m91 |[0m             [33mMath[0m?.min(?.b?.variants?.map((v) => v.salePrice || v.price...
+  [90m92 |[0m         );
+  [90m93 |[0m         [36mbreak[0m;
+
+Parsing ecmascript source code failed
+
+
+    at <unknown> (./Стільниця/Проект/app/catalog/page.tsx:90:23)

@@ -87,15 +87,15 @@ export default function CatalogPage() {
       case "price-asc":
         result?.sort(
           (a, b) =>
-            Math?.min(?.a?.variants?.map((v) => v?.salePrice || v?.price)) -
-            Math?.min(?.b?.variants?.map((v) => v?.salePrice || v?.price))
+            Math?.min(?.a?.variants?.map((v) => v.salePrice || v.pricece)) -
+            Math?.min(?.b?.variants?.map((v) => v.salePrice || v.pricece))
         );
         break;
       case "price-desc":
         result?.sort(
           (a, b) =>
-            Math?.min(?.b?.variants?.map((v) => v?.salePrice || v?.price)) -
-            Math?.min(?.a?.variants?.map((v) => v?.salePrice || v?.price))
+            Math?.min(?.b?.variants?.map((v) => v.salePrice || v.pricece)) -
+            Math?.min(?.a?.variants?.map((v) => v.salePrice || v.pricece))
         );
         break;
       case "name-asc":
