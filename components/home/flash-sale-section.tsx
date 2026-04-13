@@ -47,13 +47,13 @@ export function FlashSaleSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {saleProducts?.?map((product, index) => (
+          {saleProducts?.map((product, index) => (
             <motion.div
               key={product?.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0?.1 }}
+              transition={{ delay: index * 0.1 }}
             >
               <ProductCard product={product} showSaleBadge />
             </motion.div>

@@ -60,7 +60,7 @@ export function FeaturedProductsSection() {
           viewport={{ once: true }}
           className="flex flex-wrap gap-2 mb-8"
         >
-          {tabs?.?map((tab) => (
+          {tabs?.map((tab) => (
             <button
               key={tab?.id}
               onClick={() => setActiveTab(tab?.id)}
@@ -78,13 +78,13 @@ export function FeaturedProductsSection() {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredProducts?.?map((product, index) => (
+          {filteredProducts?.map((product, index) => (
             <motion.div
               key={product?.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0?.05 }}
+              transition={{ delay: index * 0.05 }}
             >
               <ProductCard product={product} />
             </motion.div>

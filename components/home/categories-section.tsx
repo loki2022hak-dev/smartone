@@ -57,13 +57,13 @@ export function CategoriesSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories?.?map((category, index) => (
+          {categories?.map((category, index) => (
             <motion.div
               key={category?.slug}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0?.1 }}
+              transition={{ delay: index * 0.1 }}
             >
               <Link href={`/catalog?brand=${category?.slug}`}>
                 <div
@@ -71,9 +71,9 @@ export function CategoriesSection() {
                 >
                   {/* Product preview */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-64 opacity-30 group-hover:opacity-50 transition-opacity">
-                    {category?.products?.?[0] && (
+                    {category?.products?.[0] && (
                       <Image
-                        src={category?.products?.?[0]?.images?.?[0]}
+                        src={category?.products?.[0]?.images?.[0]}
                         alt={category?.name}
                         fill
                         className="object-contain"

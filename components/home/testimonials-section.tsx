@@ -51,19 +51,19 @@ export function TestimonialsSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials?.?map((testimonial, index) => (
+          {testimonials?.map((testimonial, index) => (
             <motion.div
               key={testimonial?.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0?.1 }}
+              transition={{ delay: index * 0.1 }}
               className="bg-background rounded-2xl p-6 shadow-sm border border-border"
             >
               <Quote className="h-8 w-8 text-primary/20 mb-4" />
               
               <div className="flex gap-1 mb-4">
-                {Array?.from({ length: testimonial?.rating })?.?map((_, i) => (
+                {Array?.from({ length: testimonial?.rating })?.map((_, i) => (
                   <Star
                     key={i}
                     className="h-4 w-4 fill-amber-400 text-amber-400"
@@ -79,7 +79,7 @@ export function TestimonialsSection() {
                   <AvatarFallback>
                     {testimonial?.name
                       ?.split(" ")
-                      ?.?map((n) => n?.?[0])
+                      ?.map((n) => n?.[0])
                       ?.join("")}
                   </AvatarFallback>
                 </Avatar>

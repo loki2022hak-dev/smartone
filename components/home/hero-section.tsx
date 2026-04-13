@@ -73,7 +73,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0?.7 }}
+          transition={{ duration: 0.7 }}
           className={`absolute inset-0 bg-gradient-to-br ${slide.gradient}`}
         />
       </AnimatePresence>
@@ -93,13 +93,13 @@ export function HeroSection() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 50 }}
-              transition={{ duration: 0?.5 }}
+              transition={{ duration: 0.5 }}
               className="text-center lg:text-left z-10"
             >
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0?.1 }}
+                transition={{ delay: 0.1 }}
                 className={`inline-block text-sm font-semibold tracking-wider uppercase mb-4 ${slide.accent}`}
               >
                 {slide.tagline}
@@ -108,7 +108,7 @@ export function HeroSection() {
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0?.2 }}
+                transition={{ delay: 0.2 }}
                 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight text-balance"
               >
                 {slide.headline}
@@ -117,7 +117,7 @@ export function HeroSection() {
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0?.3 }}
+                transition={{ delay: 0.3 }}
                 className="text-lg md:text-xl text-white/70 mb-8 max-w-xl mx-auto lg:mx-0"
               >
                 {slide.description}
@@ -126,7 +126,7 @@ export function HeroSection() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0?.4 }}
+                transition={{ delay: 0.4 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
                 <Button
@@ -153,12 +153,12 @@ export function HeroSection() {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 0?.5 }}
+                  transition={{ delay: 0.5 }}
                   className="mt-8 flex items-center justify-center lg:justify-start gap-6 text-white/60"
                 >
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">
-                      ${slide.product?.variants?.?[0]?.price.toLocaleString()}
+                      ${slide.product?.variants?.[0]?.price.toLocaleString()}
                     </div>
                     <div className="text-sm">Starting from</div>
                   </div>
@@ -185,10 +185,10 @@ export function HeroSection() {
           <AnimatePresence mode="wait">
             <motion.div
               key={`image-${currentSlide}`}
-              initial={{ opacity: 0, scale: 0?.8, rotateY: -15 }}
+              initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
               animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-              exit={{ opacity: 0, scale: 0?.8, rotateY: 15 }}
-              transition={{ duration: 0?.6, ease: "easeOut" }}
+              exit={{ opacity: 0, scale: 0.8, rotateY: 15 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               className="relative flex justify-center items-center"
             >
               <div className="relative w-64 h-[500px] md:w-80 md:h-[600px] lg:w-96 lg:h-[700px]">
@@ -197,7 +197,7 @@ export function HeroSection() {
                 
                 {slide.product && (
                   <Image
-                    src={slide.product?.images?.?[0]}
+                    src={slide.product?.images?.[0]}
                     alt={slide.product?.name}
                     fill
                     className="object-contain drop-shadow-2xl"
@@ -221,7 +221,7 @@ export function HeroSection() {
           </Button>
 
           <div className="flex gap-2">
-            {heroSlides?.?map((_, index) => (
+            {heroSlides?.map((_, index) => (
               <button
                 key={index}
                 onClick={() => {
