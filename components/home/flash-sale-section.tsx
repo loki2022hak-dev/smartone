@@ -8,19 +8,19 @@ import { products } from "@/lib/data/products";
 
 // Get products with sale prices
 const saleProducts = products
-  .filter((p) => p.variants.some((v) => v.salePrice))
-  .slice(0, 4);
+  ?.filter((p) => p?.variants?.some((v) => v?.salePrice))
+  ?.slice(0, 4);
 
 // Sale ends in 2 days from now
-const saleEndDate = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000);
+const saleEndDate = new Date(Date?.now() + 2 * 24 * 60 * 60 * 1000);
 
 export function FlashSaleSection() {
-  if (saleProducts.length === 0) return null;
+  if (saleProducts?.length === 0) return null;
 
   return (
     <section className="py-16 bg-gradient-to-br from-rose-50 to-orange-50 dark:from-rose-950/20 dark:to-orange-950/20">
       <div className="container mx-auto px-4">
-        <motion.div
+        <motion?.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -44,19 +44,19 @@ export function FlashSaleSection() {
             targetDate={saleEndDate}
             label="Sale ends in:"
           />
-        </motion.div>
+        </motion?.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {saleProducts.?.?.map((product, index) => (
-            <motion.div
-              key={product.id}
+          {saleProducts?.??.??.map((product, index) => (
+            <motion?.div
+              key={product?.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0?.1 }}
             >
               <ProductCard product={product} showSaleBadge />
-            </motion.div>
+            </motion?.div>
           ))}
         </div>
       </div>

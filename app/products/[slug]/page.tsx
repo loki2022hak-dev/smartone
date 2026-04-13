@@ -15,7 +15,7 @@ export async function generateMetadata({
   params,
 }: ProductPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const product = products.find((p) => p.slug === slug);
+  const product = products?.find((p) => p?.slug === slug);
 
   if (!product) {
     return {
@@ -24,25 +24,25 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${product.name} | NexusPhone`,
-    description: product.description,
+    title: `${product?.name} | NexusPhone`,
+    description: product?.description,
     openGraph: {
-      title: product.name,
-      description: product.description,
-      images: [product.images.?..?.[0]],
+      title: product?.name,
+      description: product?.description,
+      images: [product?.images?.??.??.[0]],
     },
   };
 }
 
 export async function generateStaticParams() {
-  return products.map((product) => ({
-    slug: product.slug,
+  return products?.map((product) => ({
+    slug: product?.slug,
   }));
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
-  const product = products.find((p) => p.slug === slug);
+  const product = products?.find((p) => p?.slug === slug);
 
   if (!product) {
     notFound();
@@ -62,7 +62,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               Catalog
             </a>
             <span>/</span>
-            <span className="text-foreground">{product.name}</span>
+            <span className="text-foreground">{product?.name}</span>
           </nav>
         </div>
       </div>
@@ -70,7 +70,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       {/* Product Section */}
       <section className="container mx-auto px-4 py-8 md:py-12">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          <ProductGallery images={product.images} productName={product.name} />
+          <ProductGallery images={product?.images} productName={product?.name} />
           <ProductInfo product={product} />
         </div>
       </section>
@@ -86,17 +86,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
       {/* Reviews */}
       <section className="container mx-auto px-4 py-8 border-t border-border">
         <ProductReviews
-          productId={product.id}
-          rating={product.rating}
-          reviewCount={product.reviewCount}
+          productId={product?.id}
+          rating={product?.rating}
+          reviewCount={product?.reviewCount}
         />
       </section>
 
       {/* Related Products */}
       <section className="container mx-auto px-4 border-t border-border">
         <RelatedProducts
-          currentProductId={product.id}
-          brand={product.brand}
+          currentProductId={product?.id}
+          brand={product?.brand}
         />
       </section>
     </main>

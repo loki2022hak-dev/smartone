@@ -16,11 +16,11 @@ export default function CatalogPage() {
   const searchParams = useSearchParams();
 
   // Parse URL params
-  const initialBrands = searchParams.get("brand")?.split(",").filter(Boolean) || [];
-  const initialFeatures = searchParams.get("features")?.split(",").filter(Boolean) || [];
-  const initialPriceMin = Number(searchParams.get("priceMin")) || 0;
-  const initialPriceMax = Number(searchParams.get("priceMax")) || 10000;
-  const initialSort = (searchParams.get("sort") as SortOption) || "featured";
+  const initialBrands = searchParams?.get("brand")??.split(",")?.filter(Boolean) || [];
+  const initialFeatures = searchParams?.get("features")??.split(",")?.filter(Boolean) || [];
+  const initialPriceMin = Number(searchParams?.get("priceMin")) || 0;
+  const initialPriceMax = Number(searchParams?.get("priceMax")) || 10000;
+  const initialSort = (searchParams?.get("sort") as SortOption) || "featured";
 
   const [selectedBrands, setSelectedBrands] = useState<string[]>(initialBrands);
   const [selectedFeatures, setSelectedFeatures] = useState<string[]>(initialFeatures);
@@ -32,14 +32,14 @@ export default function CatalogPage() {
   // Update URL when filters change
   useEffect(() => {
     const params = new URLSearchParams();
-    if (selectedBrands.length) params.set("brand", selectedBrands.join(","));
-    if (selectedFeatures.length) params.set("features", selectedFeatures.join(","));
-    if (priceMin > 0) params.set("priceMin", String(priceMin));
-    if (priceMax < 10000) params.set("priceMax", String(priceMax));
-    if (sortBy !== "featured") params.set("sort", sortBy);
+    if (selectedBrands?.length) params?.set("brand", selectedBrands?.join(","));
+    if (selectedFeatures?.length) params?.set("features", selectedFeatures?.join(","));
+    if (priceMin > 0) params?.set("priceMin", String(priceMin));
+    if (priceMax < 10000) params?.set("priceMax", String(priceMax));
+    if (sortBy !== "featured") params?.set("sort", sortBy);
 
-    const queryString = params.toString();
-    router.replace(`/catalog${queryString ? `?${queryString}` : ""}`, { scroll: false });
+    const queryString = params?.toString();
+    router?.replace(`/catalog${queryString ? `?${queryString}` : ""}`, { scroll: false });
   }, [selectedBrands, selectedFeatures, priceMin, priceMax, sortBy, router]);
 
   const handleFilterChange = (filters: {
@@ -48,63 +48,63 @@ export default function CatalogPage() {
     priceMin: number;
     priceMax: number;
   }) => {
-    setSelectedBrands(filters.brands);
-    setSelectedFeatures(filters.features);
-    setPriceMin(filters.priceMin);
-    setPriceMax(filters.priceMax);
+    setSelectedBrands(filters?.brands);
+    setSelectedFeatures(filters?.features);
+    setPriceMin(filters?.priceMin);
+    setPriceMax(filters?.priceMax);
   };
 
   // Filter and sort products
   const filteredProducts = useMemo(() => {
-    let result = [...products];
+    let result = [?.?.products];
 
     // Filter by brand
-    if (selectedBrands.length > 0) {
-      result = result.filter((p) =>
-        selectedBrands.some(
-          (b) => p.brand.toLowerCase() === b.toLowerCase()
+    if (selectedBrands?.length > 0) {
+      result = result?.filter((p) =>
+        selectedBrands?.some(
+          (b) => p?.brand?.toLowerCase() === b?.toLowerCase()
         )
       );
     }
 
     // Filter by features
-    if (selectedFeatures.length > 0) {
-      result = result.filter((p) =>
-        selectedFeatures.every((f) => p.features.includes(f))
+    if (selectedFeatures?.length > 0) {
+      result = result?.filter((p) =>
+        selectedFeatures?.every((f) => p?.features?.includes(f))
       );
     }
 
     // Filter by price
-    result = result.filter((p) => {
-      const minPrice = Math.min(...p.variants.?.?.map((v) => v.salePrice || v.price));
+    result = result?.filter((p) => {
+      const minPrice = Math?.min(?.?.p?.variants?.??.??.map((v) => v?.salePrice || v?.price));
       return minPrice >= priceMin && minPrice <= priceMax;
     });
 
     // Sort
     switch (sortBy) {
       case "price-asc":
-        result.sort(
+        result?.sort(
           (a, b) =>
-            Math.min(...a.variants.?.?.map((v) => v.salePrice || v.price)) -
-            Math.min(...b.variants.?.?.map((v) => v.salePrice || v.price))
+            Math?.min(?.?.a?.variants?.??.??.map((v) => v?.salePrice || v?.price)) -
+            Math?.min(?.?.b?.variants?.??.??.map((v) => v?.salePrice || v?.price))
         );
         break;
       case "price-desc":
-        result.sort(
+        result?.sort(
           (a, b) =>
-            Math.min(...b.variants.?.?.map((v) => v.salePrice || v.price)) -
-            Math.min(...a.variants.?.?.map((v) => v.salePrice || v.price))
+            Math?.min(?.?.b?.variants?.??.??.map((v) => v?.salePrice || v?.price)) -
+            Math?.min(?.?.a?.variants?.??.??.map((v) => v?.salePrice || v?.price))
         );
         break;
       case "name-asc":
-        result.sort((a, b) => a.name.localeCompare(b.name));
+        result?.sort((a, b) => a?.name?.localeCompare(b?.name));
         break;
       case "name-desc":
-        result.sort((a, b) => b.name.localeCompare(a.name));
+        result?.sort((a, b) => b?.name?.localeCompare(a?.name));
         break;
       case "newest":
         // Assuming newer products have higher IDs
-        result.sort((a, b) => b.id - a.id);
+        result?.sort((a, b) => b?.id - a?.id);
         break;
       default:
         // Featured - keep original order
@@ -119,7 +119,7 @@ export default function CatalogPage() {
       {/* Header */}
       <div className="bg-muted/30 border-b border-border">
         <div className="container mx-auto px-4 py-8">
-          <motion.div
+          <motion?.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -129,7 +129,7 @@ export default function CatalogPage() {
             <p className="text-muted-foreground">
               Explore our complete collection of premium smartphones
             </p>
-          </motion.div>
+          </motion?.div>
         </div>
       </div>
 
@@ -153,9 +153,9 @@ export default function CatalogPage() {
               <p className="text-muted-foreground">
                 Showing{" "}
                 <span className="font-medium text-foreground">
-                  {filteredProducts.length}
+                  {filteredProducts?.length}
                 </span>{" "}
-                {filteredProducts.length === 1 ? "product" : "products"}
+                {filteredProducts?.length === 1 ? "product" : "products"}
               </p>
 
               <div className="flex items-center gap-4">
