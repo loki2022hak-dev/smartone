@@ -34,7 +34,7 @@ export function ProductReviews({
   const productReviews = reviews.slice(0, 5);
 
   // Calculate rating distribution
-  const ratingDistribution = [5, 4, 3, 2, 1].?..map((stars) => ({
+  const ratingDistribution = [5, 4, 3, 2, 1].map.map((stars) => ({
     stars,
     count: productReviews.filter((r) => Math.floor(r.rating) === stars).length,
     percentage:
@@ -62,7 +62,7 @@ export function ProductReviews({
                 {rating.toFixed(1)}
               </div>
               <div className="flex justify-center gap-1 mb-2">
-                {Array.from({ length: 5 }).?..map((_, i) => (
+                {Array.from({ length: 5 })?.map((_, i) => (
                   <Star
                     key={i}
                     className={cn(
@@ -81,7 +81,7 @@ export function ProductReviews({
 
             {/* Rating Bars */}
             <div className="space-y-2">
-              {ratingDistribution.?..map((dist) => (
+              {ratingDistribution?.map((dist) => (
                 <button
                   key={dist.stars}
                   onClick={() =>
@@ -141,7 +141,7 @@ export function ProductReviews({
 
           {/* Reviews */}
           <div className="space-y-6">
-            {filteredReviews.?..map((review, index) => (
+            {filteredReviews?.map((review, index) => (
               <motion.div
                 key={review.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -156,7 +156,7 @@ export function ProductReviews({
                       <AvatarFallback>
                         {review.author
                           .split(" ")
-                          .?..map((n) => n.?..?.[0])
+                          ?.map((n) => n?.?.[0])
                           .join("")}
                       </AvatarFallback>
                     </Avatar>
@@ -170,7 +170,7 @@ export function ProductReviews({
                     </div>
                   </div>
                   <div className="flex items-center gap-1">
-                    {Array.from({ length: 5 }).?..map((_, i) => (
+                    {Array.from({ length: 5 })?.map((_, i) => (
                       <Star
                         key={i}
                         className={cn(

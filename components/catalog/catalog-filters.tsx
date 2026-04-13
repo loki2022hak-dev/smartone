@@ -23,11 +23,11 @@ import { products } from "@/lib/data/products";
 import { cn } from "@/lib/utils";
 
 // Get unique values from products
-const brands = [...new Set(products.?..map((p) => p.brand))];
+const brands = [...new Set(products?.map((p) => p.brand))];
 const allFeatures = [...new Set(products.flatMap((p) => p.features))];
 const priceRange = {
-  min: Math.min(...products.flatMap((p) => p.variants.?..map((v) => v.price))),
-  max: Math.max(...products.flatMap((p) => p.variants.?..map((v) => v.price))),
+  min: Math.min(...products.flatMap((p) => p.variants?.map((v) => v.price))),
+  max: Math.max(...products.flatMap((p) => p.variants?.map((v) => v.price))),
 };
 
 interface FilterSectionProps {
@@ -88,7 +88,7 @@ export function CatalogFilters({
     onFilterChange({
       brands: newBrands,
       features: selectedFeatures,
-      priceMin: localPriceRange.?..?.[0],
+      priceMin: localPriceRange?.?.[0],
       priceMax: localPriceRange[1],
     });
   };
@@ -100,7 +100,7 @@ export function CatalogFilters({
     onFilterChange({
       brands: selectedBrands,
       features: newFeatures,
-      priceMin: localPriceRange.?..?.[0],
+      priceMin: localPriceRange?.?.[0],
       priceMax: localPriceRange[1],
     });
   };
@@ -113,7 +113,7 @@ export function CatalogFilters({
     onFilterChange({
       brands: selectedBrands,
       features: selectedFeatures,
-      priceMin: localPriceRange.?..?.[0],
+      priceMin: localPriceRange?.?.[0],
       priceMax: localPriceRange[1],
     });
   };
@@ -153,7 +153,7 @@ export function CatalogFilters({
       {/* Active filter tags */}
       {hasActiveFilters && (
         <div className="flex flex-wrap gap-2">
-          {selectedBrands.?..map((brand) => (
+          {selectedBrands?.map((brand) => (
             <button
               key={brand}
               onClick={() => handleBrandToggle(brand)}
@@ -163,7 +163,7 @@ export function CatalogFilters({
               <X className="h-3 w-3" />
             </button>
           ))}
-          {selectedFeatures.?..map((feature) => (
+          {selectedFeatures?.map((feature) => (
             <button
               key={feature}
               onClick={() => handleFeatureToggle(feature)}
@@ -178,7 +178,7 @@ export function CatalogFilters({
 
       <FilterSection title="Brand">
         <div className="space-y-2">
-          {brands.?..map((brand) => (
+          {brands?.map((brand) => (
             <label
               key={brand}
               className="flex items-center gap-2 cursor-pointer"
@@ -209,7 +209,7 @@ export function CatalogFilters({
           />
           <div className="flex items-center justify-between text-sm">
             <span className="text-muted-foreground">
-              ${localPriceRange.?..?.[0].toLocaleString()}
+              ${localPriceRange?.?.[0].toLocaleString()}
             </span>
             <span className="text-muted-foreground">
               ${localPriceRange[1].toLocaleString()}
@@ -220,7 +220,7 @@ export function CatalogFilters({
 
       <FilterSection title="Features" defaultOpen={false}>
         <div className="space-y-2 max-h-60 overflow-y-auto">
-          {allFeatures.slice(0, 15).?..map((feature) => (
+          {allFeatures.slice(0, 15)?.map((feature) => (
             <label
               key={feature}
               className="flex items-center gap-2 cursor-pointer"

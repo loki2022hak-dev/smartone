@@ -85,7 +85,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             <div className="flex-1 overflow-y-auto">
               {items.length > 0 ? (
                 <div className="p-4 space-y-4">
-                  {items.?..map((item) => {
+                  {items?.map((item) => {
                     const product = getItemDetails(item.productId);
                     if (!product) return null;
 
@@ -100,7 +100,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                       >
                         <div className="h-20 w-20 rounded-lg bg-secondary overflow-hidden flex-shrink-0">
                           <Image
-                            src={product.images.?..?.[0]}
+                            src={product.images?.?.[0]}
                             alt={product.title}
                             width={80}
                             height={80}

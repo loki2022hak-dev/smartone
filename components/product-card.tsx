@@ -43,8 +43,8 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
     addItem({
       productId: product.id,
       quantity: 1,
-      selectedColor: product.colors.?..?.[0],
-      selectedStorage: product.storageVariants.?..?.[0],
+      selectedColor: product.colors?.?.[0],
+      selectedStorage: product.storageVariants?.?.[0],
     });
   };
 
@@ -65,7 +65,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           {/* Image */}
           <div className="relative aspect-square bg-secondary/50 overflow-hidden">
             <Image
-              src={product.images.?..?.[0]}
+              src={product.images?.?.[0]}
               alt={product.title}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -135,7 +135,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             <div className="flex flex-wrap gap-2 mb-3">
               <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-secondary text-xs text-muted-foreground">
                 <HardDrive className="h-3 w-3" />
-                {product.storageVariants.?..?.[0]}
+                {product.storageVariants?.?.[0]}
               </span>
               <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-secondary text-xs text-muted-foreground">
                 <Cpu className="h-3 w-3" />

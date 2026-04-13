@@ -134,7 +134,7 @@ export function HeroSection() {
                   size="lg"
                   className="bg-white text-slate-900 hover:bg-white/90 text-base px-8"
                 >
-                  <Link href={`/products/${slide.product?slug}`}>
+                  <Link href={`/products/${slide.product?.slug}`}>
                     Shop Now
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
