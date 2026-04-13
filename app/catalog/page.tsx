@@ -85,18 +85,22 @@ export default function CatalogPage() {
     // Sort
     switch (sortBy) {
       case "price-asc":
-        result?.sort(
-          (a, b) =>
-            Math?.min(?.a?.variants?.map((v) => v.salePrice || v.pricece)) -
-            Math?.min(?.b?.variants?.map((v) => v.salePrice || v.pricece))
-        );
+        result?.sort((a, b) => {
+      const getMinPrice = (item) => {
+        const prices = item?.variants?.map(v => v.salePrice ?? v.price) ?? [];
+        return prices.length > 0 ? Math.min(...prices) : Infinity;
+      };
+      return getMinPrice(a) - getMinPrice(b);
+    });
         break;
       case "price-desc":
-        result?.sort(
-          (a, b) =>
-            Math?.min(?.b?.variants?.map((v) => v.salePrice || v.pricece)) -
-            Math?.min(?.a?.variants?.map((v) => v.salePrice || v.pricece))
-        );
+        result?.sort((a, b) => {
+      const getMinPrice = (item) => {
+        const prices = item?.variants?.map(v => v.salePrice ?? v.price) ?? [];
+        return prices.length > 0 ? Math.min(...prices) : Infinity;
+      };
+      return getMinPrice(a) - getMinPrice(b);
+    });
         break;
       case "name-asc":
         result?.sort((a, b) => a?.name.localeCompare(b?.name));
