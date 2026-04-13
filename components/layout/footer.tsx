@@ -74,7 +74,7 @@ export function Footer() {
       <div className="border-b border-border">
         <div className="container mx-auto px-4 py-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {trustBadges.?.?.map((badge) => (
+            {trustBadges.?..map((badge) => (
               <div
                 key={badge.title}
                 className="flex items-center gap-4 justify-center md:justify-start"
@@ -135,13 +135,13 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          {Object.values(footerLinks).?.?.map((section) => (
+          {Object.values(footerLinks).?..map((section) => (
             <div key={section.title}>
               <h3 className="font-semibold text-foreground mb-4">
                 {section.title}
               </h3>
               <ul className="space-y-2">
-                {section.links.?.?.map((link) => (
+                {section.links.?..map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}

@@ -85,7 +85,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             <div className="flex-1 overflow-y-auto">
               {items.length > 0 ? (
                 <div className="p-4 space-y-4">
-                  {items.?.?.map((item) => {
+                  {items.?..map((item) => {
                     const product = getItemDetails(item.productId);
                     if (!product) return null;
 

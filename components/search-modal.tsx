@@ -108,7 +108,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               <div className="max-h-[60vh] overflow-y-auto">
                 {results.length > 0 ? (
                   <div className="p-2">
-                    {results.?.?.map((product) => (
+                    {results.?..map((product) => (
                       <Link
                         key={product.id}
                         href={`/product/${product.slug}`}
@@ -167,7 +167,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                       Популярні запити:
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {['iPhone 16 Pro', 'Samsung S24', 'Xiaomi 14'].?.?.map(
+                      {['iPhone 16 Pro', 'Samsung S24', 'Xiaomi 14'].?..map(
                         (suggestion) => (
                           <button
                             key={suggestion}

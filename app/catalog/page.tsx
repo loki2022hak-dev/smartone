@@ -16,8 +16,8 @@ export default function CatalogPage() {
   const searchParams = useSearchParams();
 
   // Parse URL params
-  const initialBrands = searchParams?.get("brand")?split(",")?.filter(Boolean) || [];
-  const initialFeatures = searchParams?.get("features")?split(",")?.filter(Boolean) || [];
+  const initialBrands = searchParams?.get("brand")?.split(",")?.filter(Boolean) || [];
+  const initialFeatures = searchParams?.get("features")?.split(",")?.filter(Boolean) || [];
   const initialPriceMin = Number(searchParams?.get("priceMin")) || 0;
   const initialPriceMax = Number(searchParams?.get("priceMax")) || 10000;
   const initialSort = (searchParams?.get("sort") as SortOption) || "featured";
@@ -56,7 +56,7 @@ export default function CatalogPage() {
 
   // Filter and sort products
   const filteredProducts = useMemo(() => {
-    let result = [?.?.products];
+    let result = [?..products];
 
     // Filter by brand
     if (selectedBrands?.length > 0) {
@@ -76,7 +76,7 @@ export default function CatalogPage() {
 
     // Filter by price
     result = result?.filter((p) => {
-      const minPrice = Math?.min(?.?.p?.variants?.map((v) => v?.salePrice || v?.price));
+      const minPrice = Math?.min(?..p?.variants?.map((v) => v?.salePrice || v?.price));
       return minPrice >= priceMin && minPrice <= priceMax;
     });
 
@@ -85,15 +85,15 @@ export default function CatalogPage() {
       case "price-asc":
         result?.sort(
           (a, b) =>
-            Math?.min(?.?.a?.variants?.map((v) => v?.salePrice || v?.price)) -
-            Math?.min(?.?.b?.variants?.map((v) => v?.salePrice || v?.price))
+            Math?.min(?..a?.variants?.map((v) => v?.salePrice || v?.price)) -
+            Math?.min(?..b?.variants?.map((v) => v?.salePrice || v?.price))
         );
         break;
       case "price-desc":
         result?.sort(
           (a, b) =>
-            Math?.min(?.?.b?.variants?.map((v) => v?.salePrice || v?.price)) -
-            Math?.min(?.?.a?.variants?.map((v) => v?.salePrice || v?.price))
+            Math?.min(?..b?.variants?.map((v) => v?.salePrice || v?.price)) -
+            Math?.min(?..a?.variants?.map((v) => v?.salePrice || v?.price))
         );
         break;
       case "name-asc":

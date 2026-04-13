@@ -70,7 +70,7 @@ export function NewsletterSection() {
                 className="bg-white text-primary hover:bg-white/90 shrink-0"
               >
                 {isLoading ? (
-                  "Subscribing?.?."
+                  "Subscribing?.."
                 ) : (
                   <>
                     Subscribe
