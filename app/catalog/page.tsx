@@ -16,8 +16,8 @@ export default function CatalogPage() {
   const searchParams = useSearchParams();
 
   // Parse URL params
-  const initialBrands = searchParams?.get("brand")??.split(",")?.filter(Boolean) || [];
-  const initialFeatures = searchParams?.get("features")??.split(",")?.filter(Boolean) || [];
+  const initialBrands = searchParams?.get("brand")?split(",")?.filter(Boolean) || [];
+  const initialFeatures = searchParams?.get("features")?split(",")?.filter(Boolean) || [];
   const initialPriceMin = Number(searchParams?.get("priceMin")) || 0;
   const initialPriceMax = Number(searchParams?.get("priceMax")) || 10000;
   const initialSort = (searchParams?.get("sort") as SortOption) || "featured";
@@ -76,7 +76,7 @@ export default function CatalogPage() {
 
     // Filter by price
     result = result?.filter((p) => {
-      const minPrice = Math?.min(?.?.p?.variants?.??.??.map((v) => v?.salePrice || v?.price));
+      const minPrice = Math?.min(?.?.p?.variants?.?map((v) => v?.salePrice || v?.price));
       return minPrice >= priceMin && minPrice <= priceMax;
     });
 
@@ -85,22 +85,22 @@ export default function CatalogPage() {
       case "price-asc":
         result?.sort(
           (a, b) =>
-            Math?.min(?.?.a?.variants?.??.??.map((v) => v?.salePrice || v?.price)) -
-            Math?.min(?.?.b?.variants?.??.??.map((v) => v?.salePrice || v?.price))
+            Math?.min(?.?.a?.variants?.?map((v) => v?.salePrice || v?.price)) -
+            Math?.min(?.?.b?.variants?.?map((v) => v?.salePrice || v?.price))
         );
         break;
       case "price-desc":
         result?.sort(
           (a, b) =>
-            Math?.min(?.?.b?.variants?.??.??.map((v) => v?.salePrice || v?.price)) -
-            Math?.min(?.?.a?.variants?.??.??.map((v) => v?.salePrice || v?.price))
+            Math?.min(?.?.b?.variants?.?map((v) => v?.salePrice || v?.price)) -
+            Math?.min(?.?.a?.variants?.?map((v) => v?.salePrice || v?.price))
         );
         break;
       case "name-asc":
-        result?.sort((a, b) => a?.name?.localeCompare(b?.name));
+        result?.sort((a, b) => a?.name.localeCompare(b?.name));
         break;
       case "name-desc":
-        result?.sort((a, b) => b?.name?.localeCompare(a?.name));
+        result?.sort((a, b) => b?.name.localeCompare(a?.name));
         break;
       case "newest":
         // Assuming newer products have higher IDs
@@ -119,7 +119,7 @@ export default function CatalogPage() {
       {/* Header */}
       <div className="bg-muted/30 border-b border-border">
         <div className="container mx-auto px-4 py-8">
-          <motion?.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
@@ -129,7 +129,7 @@ export default function CatalogPage() {
             <p className="text-muted-foreground">
               Explore our complete collection of premium smartphones
             </p>
-          </motion?.div>
+          </motion.div>
         </div>
       </div>
 

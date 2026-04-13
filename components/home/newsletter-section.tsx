@@ -11,8 +11,8 @@ export function NewsletterSection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React?.FormEvent) => {
-    e?.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setIsLoading(true);
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -23,7 +23,7 @@ export function NewsletterSection() {
   return (
     <section className="py-16 bg-gradient-to-br from-primary to-primary/80">
       <div className="container mx-auto px-4">
-        <motion?.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -42,7 +42,7 @@ export function NewsletterSection() {
           </p>
 
           {isSubmitted ? (
-            <motion?.div
+            <motion.div
               initial={{ opacity: 0, scale: 0?.9 }}
               animate={{ opacity: 1, scale: 1 }}
               className="flex items-center justify-center gap-3 text-white"
@@ -53,14 +53,14 @@ export function NewsletterSection() {
               <span className="text-lg font-medium">
                 Thanks for subscribing!
               </span>
-            </motion?.div>
+            </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <Input
                 type="email"
                 placeholder="Enter your email"
                 value={email}
-                onChange={(e) => setEmail(e?.target?.value)}
+                onChange={(e) => setEmail(e.target?.value)}
                 required
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white/40"
               />
@@ -82,9 +82,9 @@ export function NewsletterSection() {
           )}
 
           <p className="text-white/60 text-sm mt-4">
-            No spam, unsubscribe at any time?.
+            No spam, unsubscribe at any time.
           </p>
-        </motion?.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -29,7 +29,7 @@ export function FeaturedProductsSection() {
   return (
     <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
-        <motion?.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -51,16 +51,16 @@ export function FeaturedProductsSection() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-        </motion?.div>
+        </motion.div>
 
         {/* Tabs */}
-        <motion?.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="flex flex-wrap gap-2 mb-8"
         >
-          {tabs?.??.??.map((tab) => (
+          {tabs?.?map((tab) => (
             <button
               key={tab?.id}
               onClick={() => setActiveTab(tab?.id)}
@@ -74,12 +74,12 @@ export function FeaturedProductsSection() {
               {tab?.label}
             </button>
           ))}
-        </motion?.div>
+        </motion.div>
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredProducts?.??.??.map((product, index) => (
-            <motion?.div
+          {filteredProducts?.?map((product, index) => (
+            <motion.div
               key={product?.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ export function FeaturedProductsSection() {
               transition={{ delay: index * 0?.05 }}
             >
               <ProductCard product={product} />
-            </motion?.div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -41,7 +41,7 @@ export function CategoriesSection() {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <motion?.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -54,11 +54,11 @@ export function CategoriesSection() {
             Explore our curated collection of premium smartphones from the world&apos;s
             leading manufacturers
           </p>
-        </motion?.div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories?.??.??.map((category, index) => (
-            <motion?.div
+          {categories?.?map((category, index) => (
+            <motion.div
               key={category?.slug}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -71,9 +71,9 @@ export function CategoriesSection() {
                 >
                   {/* Product preview */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-64 opacity-30 group-hover:opacity-50 transition-opacity">
-                    {category?.products?.??.??.[0] && (
+                    {category?.products?.?[0] && (
                       <Image
-                        src={category?.products?.??.??.[0]?.images?.??.??.[0]}
+                        src={category?.products?.?[0]?.images?.?[0]}
                         alt={category?.name}
                         fill
                         className="object-contain"
@@ -102,7 +102,7 @@ export function CategoriesSection() {
                   </div>
                 </div>
               </Link>
-            </motion?.div>
+            </motion.div>
           ))}
         </div>
       </div>

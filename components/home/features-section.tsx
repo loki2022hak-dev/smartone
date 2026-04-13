@@ -48,9 +48,9 @@ export function FeaturesSection() {
     <section className="py-16 bg-background border-y border-border">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-          {features?.??.??.map((feature, index) => (
-            <motion?.div
-              key={feature?.title}
+          {features?.?map((feature, index) => (
+            <motion.div
+              key={feature.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -58,15 +58,15 @@ export function FeaturesSection() {
               className="text-center"
             >
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 text-primary mb-4">
-                <feature?.icon className="h-7 w-7" />
+                <feature.icon className="h-7 w-7" />
               </div>
               <h3 className="font-semibold text-foreground mb-1">
-                {feature?.title}
+                {feature.title}
               </h3>
               <p className="text-sm text-muted-foreground">
-                {feature?.description}
+                {feature.description}
               </p>
-            </motion?.div>
+            </motion.div>
           ))}
         </div>
       </div>
