@@ -1,0 +1,8 @@
+
+> my-project@0.1.0 build /home/grim5225/Стільниця/Проект
+> next build
+
+▲ Next.js 16.2.0 (Turbopack)
+
+  Creating an optimized production build ...
+ ELIFECYCLE  Command failed with exit code 1.
